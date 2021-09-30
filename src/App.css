@@ -1,0 +1,10 @@
+* {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #0b032d;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  text-rendering: optimizeLegibility;
+}
