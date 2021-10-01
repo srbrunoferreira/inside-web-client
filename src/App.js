@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import MainLayout from './layouts/MainLayout'
 
@@ -22,6 +22,7 @@ function App () {
           <ProtectedRoute path="/home/" exact strict component={HomePage} />
           <ProtectedRoute path="/profile/" exact strict component={ProfilePage} />
 
+          <Redirect from="/" to="/home/" exact />
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </MainLayout>
