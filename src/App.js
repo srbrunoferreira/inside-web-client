@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 
 import MainLayout from './layouts/MainLayout'
 
@@ -8,24 +8,21 @@ import ProfilePage from './pages/Profile/ProfilePage'
 import LoginPage from './pages/Login/LoginPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 
-import ProtectedRoute from './components/ProtectedRoute'
+import Route from './components/Route'
 
 import './App.css'
 
 function App () {
   return (
     <BrowserRouter>
-      <MainLayout>
-        <Switch>
-          <Route path="/login/" exact strict component={LoginPage} />
+      <Switch>
+        <Route path="/home/" page={HomePage} layout={MainLayout} exact strict requireAuth />
+        <Route path="/profile/" page={ProfilePage} layout={MainLayout} exact strict requireAuth />
+        <Route path="/login/" page={LoginPage} exact strict />
 
-          <ProtectedRoute path="/home/" exact strict component={HomePage} />
-          <ProtectedRoute path="/profile/" exact strict component={ProfilePage} />
-
-          <Redirect from="/" to="/home/" exact />
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
-      </MainLayout>
+        <Redirect from="/" to="/home/" exact />
+        <Route path="*" page={NotFoundPage} />
+      </Switch>
     </BrowserRouter>
   )
 }
