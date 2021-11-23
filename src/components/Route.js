@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types'
 import { Route as RouteWrapper, Redirect } from 'react-router'
 
 const Route = ({ page: Page, layout: Layout, requireAuth, ...rest }) => {
-  const userLogged = true
+  const userLogged = false
   const allowAccess = !requireAuth ? true : userLogged
 
   return (
