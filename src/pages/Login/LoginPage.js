@@ -1,17 +1,44 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
-import { TextField, Button, InputAdornment, Link } from '@mui/material'
+// eslint-disable-next-line no-unused-vars
+import { TextField, Button, InputAdornment, Link, Grid, Container, Box } from '@mui/material'
 import { Person as PersonIcon, VpnKey as PasswordIcon } from '@mui/icons-material'
 
-import './LoginPage.css'
+// import './LoginPage.css'
 import logoFile from '../../assets/img/logo.svg'
 
 const LoginPage = () => {
   return (
-    <div id="wrapper">
-      <img id="logo" src={logoFile} />
-      <form id="login-form">
-        <div id="form-inputs-container">
-          <div className="input-container">
+    <Container
+      style={{
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <Container
+        disableGutters
+        style={{
+          maxWidth: 'max-content',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+          padding: '25px'
+        }}
+      >
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid item style={{ marginTop: '15px' }}>
+            <Box sx={{ width: '120px' }}>
+              <img id="logo" src={logoFile} style={{ width: '100%' }} />
+            </Box>
+          </Grid>
+          <Grid item>
             <TextField
               autoFocus
               id="username"
@@ -33,8 +60,8 @@ const LoginPage = () => {
                 maxLength: 18
               }}
             />
-          </div>
-          <div className="input-container">
+          </Grid>
+          <Grid item>
             <TextField
               id="password"
               label="Password"
@@ -55,25 +82,38 @@ const LoginPage = () => {
                 maxLength: 18
               }}
             />
-          </div>
-        </div>
-        <div id="form-options-container">
-          <Link
-            type="button"
-            component="button"
-            variant="body2"
-            underline="none"
-            onClick={() => { }}
+          </Grid>
+          <Grid id="form-options-container" item alignSelf="flex-end">
+            <Link
+              type="button"
+              component="button"
+              variant="body2"
+              underline="none"
+              onClick={() => { }}
+            >
+              Esqueceu a senha?
+            </Link>
+          </Grid>
+          <Grid
+            id="form-actions-container"
+            container
+            item
+            justifyContent="center"
+            alignItems="center"
+            spacing={3}
+            style={{ marginTop: '15px' }}
           >
-            Esqueceu a senha?
-          </Link>
-        </div>
-        <div id="form-actions-container">
-          <Button id="form-btn-login" variant="contained" title="Login" type="submit" disableElevation>Login</Button>
-          <Button id="form-btn-clear" variant="outlined" title="Login">Clear</Button>
-        </div>
-      </form>
-    </div>
+            <Grid item>
+              <Button id="form-btn-login" color="secondary" variant="contained" title="Login" type="submit" disableElevation>Login</Button>
+            </Grid>
+            <Grid item>
+              <Button id="form-btn-clear" color="secondary" variant="outlined" title="Login">Clear</Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+    </Container>
+
   )
 }
 

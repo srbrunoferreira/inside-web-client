@@ -1,4 +1,5 @@
 import React from 'react'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 
 import MainLayout from './layouts/MainLayout'
@@ -12,18 +13,31 @@ import Route from './components/Route'
 
 import './App.css'
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#240090'
+    },
+    secondary: {
+      main: '#20368f'
+    }
+  }
+})
+
 function App () {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/home/" page={HomePage} layout={MainLayout} exact strict requireAuth />
-        <Route path="/profile/" page={ProfilePage} layout={MainLayout} exact strict requireAuth />
-        <Route path="/login/" page={LoginPage} exact strict />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/home/" page={HomePage} layout={MainLayout} exact strict requireAuth />
+          <Route path="/profile/" page={ProfilePage} layout={MainLayout} exact strict requireAuth />
+          <Route path="/login/" page={LoginPage} exact strict />
 
-        <Redirect from="/" to="/home/" exact />
-        <Route path="*" page={NotFoundPage} />
-      </Switch>
-    </BrowserRouter>
+          <Redirect from="/" to="/home/" exact />
+          <Route path="*" page={NotFoundPage} />
+        </Switch>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
