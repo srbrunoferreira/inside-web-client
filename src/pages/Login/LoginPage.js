@@ -1,10 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
-// eslint-disable-next-line no-unused-vars
 import { TextField, Button, InputAdornment, Link, Grid, Container, Box } from '@mui/material'
 import { Person as PersonIcon, VpnKey as PasswordIcon } from '@mui/icons-material'
 
-// import './LoginPage.css'
 import logoFile from '../../assets/img/logo.svg'
 
 const LoginPage = () => {
