@@ -40,10 +40,15 @@ export default function MainLayoutRightContainer () {
     <Container disableGutters>
       {/* <img id="logo" src={logoFile} style={{ width: '120px' }} /> */}
       <Box>
-        <Tabs value={value} onChange={handleTabChange}>
-          <Tab label="Chat" />
-          <Tab label="Notifications" />
-          <Tab label="Requests" />
+        <Tabs
+          value={value}
+          onChange={handleTabChange}
+          scrollButtons={false}
+          variant="scrollable"
+        >
+          <Tab wrapped label="Chat" />
+          <Tab wrapped label="Notifications" />
+          <Tab wrapped label="Requests" />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

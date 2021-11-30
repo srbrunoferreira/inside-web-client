@@ -55,7 +55,7 @@ const MainLayout = ({ children }) => {
 
       <DrawerContainer disableGutters>
         <ProfileContainer disableGutters>
-          <Avatar srcSet={avatarFIle} sx={{ width: '142px', height: '142px' }} variant="rounded" />
+          <Avatar srcSet={avatarFIle} sx={{ width: '142px', height: '142px' }} variant="circular" />
           <Box id="username-container" component="a">Bruno Ferreira</Box>
         </ProfileContainer>
         <Container disableGutters>
@@ -66,8 +66,12 @@ const MainLayout = ({ children }) => {
               { text: 'Settings', icon: <SettingsIcon />, path: '/home/' },
               { text: 'Friends', icon: <PeopleIcon />, path: '/profile/' }
             ].map((item, index) => (
-              <Link key={index} to={item.path} style={{ textDecoration: 'none', color: 'unset' }}>
-                <ListItemButton>
+              <Link
+                key={index}
+                to={item.path}
+                style={{ textDecoration: 'none', color: 'unset' }}
+              >
+                <ListItemButton dense>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText className="drawer-item-text" primary={item.text} />
                 </ListItemButton >
